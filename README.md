@@ -1,13 +1,13 @@
 
 # PowerCurvesASCA
 
-This repository contains the code for reproducing the results of the paper "Permutation Tests for ASCA in Miltivariate Longitudinal Intervention Studies", by Camacho et al. 
+This repository contains the code for reproducing the results of the paper Camacho J, Díaz C, Sánchez-Rovira P. Permutation tests for ASCA in multivariatelongitudinal intervention studies.Journal of Chemometrics. 2022;e3398. doi:10.1002/cem.339816 of 16CAMACHOET AL.
 
 This repository requires the MEDA toolbox, at https://github.com/josecamachop/MEDA-Toolbox
 
 Contact person: José Camacho (josecamacho@ugr.es)
 
-Last modification of this document: 10/Feb/22
+Last modification of this document: 20/Jul/22
 
 
 ## Organization
