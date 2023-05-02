@@ -3,7 +3,7 @@
 
 This repository contains the code for reproducing the results of the paper "Permutation Tests for ASCA in Miltivariate Longitudinal Intervention Studies", by Camacho et al. 
 
-This repository requires the MEDA toolbox, at https://github.com/josecamachop/MEDA-Toolbox
+This repository requires the MEDA toolbox v1.2 at https://github.com/josecamachop/MEDA-Toolbox
 
 Contact person: José Camacho (josecamacho@ugr.es)
 

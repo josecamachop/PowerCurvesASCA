@@ -166,7 +166,7 @@ for i2=1:perm_tot
         Xm = alpha(a)*Xstruct + (1-alpha(a))*Xnoise; 
         
         % raw data perm
-        paranovao = parglm(Xm,[vc vt vp],[1 2],0);
+        [T, paranovao] = parglm(Xm,[vc vt vp],[1 2],0);
         reo = [4 2 1 3];
         for o = 1:length(reo)
             if paranovao.p(reo(o))<0.05
