@@ -100,36 +100,6 @@ for i = 1 : n_interactions
     n = size(D,2);
 end
 
-% Design matrix
-F = [vc vt];
-interactions = [1 2];
-n_factors = 2;
-n_interactions = 1;
-
-% Create Design Matrix
-n = 1;
-D2 = ones(size(X,1)-1,1);
-
-for f = 1 : n_factors
-    uF = unique(F(:,f));
-    for i = 1:length(uF)-1
-        D2(find(F(:,f)==uF(i)),n+i) = 1;
-    end
-    parglmo2.factors{f}.Dvars = n+(1:length(uF)-1);
-    D2(find(F(:,f)==uF(end)),parglmo2.factors{f}.Dvars) = -1;
-    n = n + length(uF) - 1;
-end
-
-for i = 1 : n_interactions
-    for j = parglmo2.factors{interactions(i,1)}.Dvars
-        for k = parglmo2.factors{interactions(i,2)}.Dvars
-            D2(:,end+1) = D2(:,j).* D2(:,k);
-        end
-    end
-    parglmo2.interactions{i}.Dvars = n+1:size(D2,2);
-    n = size(D2,2);
-end
-
 perm_tot = 100;
 
 %% Repite permutations
