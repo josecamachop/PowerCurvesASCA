@@ -3,7 +3,7 @@
 
 This repository contains the code for reproducing the results of the paper Camacho J, Díaz C, Sánchez-Rovira P. Permutation tests for ASCA in multivariate longitudinal intervention studies. Journal of Chemometrics. 2022;e3398. doi:10.1002/cem.339816 
 
-This repository requires the MEDA toolbox v1.2 at https://github.com/josecamachop/MEDA-Toolbox
+This repository requires the MEDA toolbox v1.3 at https://github.com/josecamachop/MEDA-Toolbox
 
 Contact person: José Camacho (josecamacho@ugr.es)
 
