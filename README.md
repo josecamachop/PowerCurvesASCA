@@ -14,22 +14,16 @@ Last modification of this document: 20/Jul/22
 
 The code is organized in a number of Matlab scripts:
 
-- The scripts named "PowerCurves" perform the computation of complete power curves from a set of tests and plots results.
+- The script named "PowerCurves" perform the computation of complete power curves from a set of tests and plots results.
 
-- The scripts named starting by "CreatePlot" plot the figures in the paper (Note: to run "CreatePlotBoots.m" you need to download the aboxplot folder in the Github repo lemonzi/matlab at https://github.com/lemonzi/matlab)
+- The script named starting by "CreatePlot" plot the figures 
 
 - The rest of scripts are named after the corresponding test in the paper. 
 
 The present repository is organized as follows:
 
-- 					The root folder contains anonymized data and the code for unconstrained permutations in the observations.
-- A/				Contains the code for tests for the treatment factor.
-- AB/				Contains the code for tests for the interaction between treatment and time.
-- B/				Contains the code for tests for the time factor.
-- C(A)/				Contains the code for tests for the subject factor.
-- Fig/				Contains the figures of the paper.
-
-
+- The root folder contains anonymized data and the code for unconstrained permutations in the observations.
+- html/ contains the publication of results with publish				
 
 ## How to use
 
