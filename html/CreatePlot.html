@@ -1,0 +1,275 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Plot of figures</title><meta name="generator" content="MATLAB 9.1"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2023-06-07"><meta name="DC.source" content="CreatePlot.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Plot of figures</h1><!--introduction--><p>coded by: Jose Camacho Paez (<a href="mailto:josecamacho@ugr.es">josecamacho@ugr.es</a>) last modification: 05/Jun/2023</p><p>Copyright (C) 2023  University of Granada, Granada Copyright (C) 2023  Jose Camacho Paez</p><p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p><p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.</p><p>You should have received a copy of the GNU General Public License along with this program.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">TN.xlsx</a></li><li><a href="#2">LB.xlsx</a></li><li><a href="#3">TN_balanced</a></li></ul></div><h2 id="1">TN.xlsx</h2><pre class="codeinput">load <span class="string">random_e1</span> <span class="string">e</span> <span class="string">alpha</span>
+
+<span class="comment">% Compare Interaction</span>
+
+i=1;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Interaction Time x Class'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare time</span>
+
+i=2;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Time'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare class</span>
+
+i=3;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Class'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare individual</span>
+
+i=4;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Individual'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+</pre><img vspace="5" hspace="5" src="CreatePlot_01.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_02.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_03.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_04.png" alt=""> <h2 id="2">LB.xlsx</h2><pre class="codeinput">load <span class="string">random_e2</span> <span class="string">e</span> <span class="string">alpha</span>
+
+<span class="comment">% Compare Interaction</span>
+
+i=1;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Interaction Time x Class'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare time</span>
+
+i=2;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Time'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare class</span>
+
+i=3;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Class'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare individual</span>
+
+i=4;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Individual'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+</pre><img vspace="5" hspace="5" src="CreatePlot_05.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_06.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_07.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_08.png" alt=""> <h2 id="3">TN_balanced</h2><pre class="codeinput">load <span class="string">random_e3</span> <span class="string">e</span> <span class="string">alpha</span>
+
+<span class="comment">% Compare Interaction</span>
+
+i=1;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Interaction Time x Class'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare time</span>
+
+i=2;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Time'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare class</span>
+
+i=3;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Class'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+
+<span class="comment">% Compare individual</span>
+
+i=4;
+figure, plot(alpha,e(1,:,i),<span class="string">'b'</span>); hold <span class="string">on</span>, plot(alpha,e(2,:,i),<span class="string">'r'</span>); plot(alpha,e(3,:,i),<span class="string">'g.-'</span>); plot(alpha,e(4,:,i),<span class="string">'k--'</span>); plot(alpha,e(5,:,i),<span class="string">'m'</span>);
+xlabel(<span class="string">'Alpha'</span>),ylabel(<span class="string">'Power'</span>),title(<span class="string">'Factor Individual'</span>)
+legend(<span class="string">'Obs TreeFM'</span>,<span class="string">'Obs TreeFM 2PCs'</span>,<span class="string">'Obs TreeFM III'</span>,<span class="string">'Obs TreeFM A+B+AB'</span>,<span class="string">'Obs TreeFM F'</span>)
+</pre><img vspace="5" hspace="5" src="CreatePlot_09.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_10.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_11.png" alt=""> <img vspace="5" hspace="5" src="CreatePlot_12.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Plot of figures 
+%
+% coded by: Jose Camacho Paez (josecamacho@ugr.es)
+% last modification: 05/Jun/2023
+%
+% Copyright (C) 2023  University of Granada, Granada
+% Copyright (C) 2023  Jose Camacho Paez
+% 
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%% TN.xlsx
+
+load random_e1 e alpha
+
+% Compare Interaction
+
+i=1;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m'); 
+xlabel('Alpha'),ylabel('Power'),title('Interaction Time x Class')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare time
+
+i=2;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m');  
+xlabel('Alpha'),ylabel('Power'),title('Factor Time')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare class
+
+i=3;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m');  
+xlabel('Alpha'),ylabel('Power'),title('Factor Class')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare individual
+
+i=4;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m'); 
+xlabel('Alpha'),ylabel('Power'),title('Factor Individual')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+%% LB.xlsx
+
+load random_e2 e alpha
+
+% Compare Interaction
+
+i=1;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m'); 
+xlabel('Alpha'),ylabel('Power'),title('Interaction Time x Class')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare time
+
+i=2;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m');  
+xlabel('Alpha'),ylabel('Power'),title('Factor Time')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare class
+
+i=3;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m');  
+xlabel('Alpha'),ylabel('Power'),title('Factor Class')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare individual
+
+i=4;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m'); 
+xlabel('Alpha'),ylabel('Power'),title('Factor Individual')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+%% TN_balanced
+
+load random_e3 e alpha
+
+% Compare Interaction
+
+i=1;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m'); 
+xlabel('Alpha'),ylabel('Power'),title('Interaction Time x Class')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare time
+
+i=2;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m');  
+xlabel('Alpha'),ylabel('Power'),title('Factor Time')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare class
+
+i=3;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m');  
+xlabel('Alpha'),ylabel('Power'),title('Factor Class')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+
+% Compare individual
+
+i=4;
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'kREPLACE_WITH_DASH_DASH'); plot(alpha,e(5,:,i),'m'); 
+xlabel('Alpha'),ylabel('Power'),title('Factor Individual')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+##### SOURCE END #####
+--></body></html>
