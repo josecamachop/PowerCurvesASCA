@@ -8,10 +8,10 @@
 %   - AB: Interaction A & B
 %
 % coded by: Jose Camacho Paez (josecamacho@ugr.es)
-% last modification: 20/Jul/2022
+% last modification: 05/Jun/2023
 %
-% Copyright (C) 2022  University of Granada, Granada
-% Copyright (C) 2022  Jose Camacho Paez
+% Copyright (C) 2023  University of Granada, Granada
+% Copyright (C) 2023  Jose Camacho Paez
 % 
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -74,7 +74,7 @@ perm_tot = 100;
 %% Repite permutations
 
 alpha = 0:0.05:0.5; % This controls the compromise of true significance vs random
-eD = zeros(4,length(alpha),4,perm_tot);
+eD = zeros(5,length(alpha),4,perm_tot);
 
 for i2=1:perm_tot
     
@@ -106,7 +106,7 @@ for i2=1:perm_tot
         Xm = alpha(a)*Xstruct + (1-alpha(a))*Xnoise; 
         
         % raw data perm
-        [T, paranovao] = parglm(Xm,[vc vt vp],[1 2],0);
+        [T, paranovao] = parglm(Xm,[vc vt vp],[1 2],0,[],0);
         reo = [4 2 1 3];
         for o = 1:length(reo)
             if paranovao.p(reo(o))<0.05
@@ -140,6 +140,15 @@ for i2=1:perm_tot
                 eD(4,a,o,i2) = 1;
             end
         end
+     
+        % raw data perm F
+        [T, paranovao] = parglm(Xm,[vc vt vp],[1 2],0,[],1);
+        reo = [4 2 1 3];
+        for o = 1:length(reo)
+            if paranovao.p(reo(o))<0.05
+                eD(5,a,o,i2) = 1;
+            end
+        end
         
     end
 end
@@ -155,29 +164,28 @@ save random_e1 e eST eD alpha
 %% Compare Interaction
 
 i=1;
-figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); 
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m'); 
 xlabel('Alpha'),ylabel('Power'),title('Interaction Time x Class')
-legend('Raw Data','Raw Data, 2 PCs','Raw Data ETIII','Raw Data ETIII A+B+AB')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
 
 %% Compare time
 
 i=2;
-figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); 
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m');  
 xlabel('Alpha'),ylabel('Power'),title('Factor Time')
-legend('Raw Data','Raw Data, 2 PCs','Raw Data ETIII','Raw Data ETIII A+B+AB')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
 
 %% Compare class
 
 i=3;
-figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); 
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m');  
 xlabel('Alpha'),ylabel('Power'),title('Factor Class')
-legend('Raw Data','Raw Data, 2 PCs','Raw Data ETIII','Raw Data ETIII A+B+AB')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
 
 %% Compare individual
 
 i=4;
-figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--');
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m'); 
 xlabel('Alpha'),ylabel('Power'),title('Factor Individual')
-legend('Raw Data','Raw Data, 2 PCs','Raw Data ETIII','Raw Data ETIII A+B+AB')
-
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
 
