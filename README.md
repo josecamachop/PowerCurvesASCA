@@ -28,6 +28,7 @@ The present repository is organized as follows:
 - B/				Contains the code for tests for the time factor.
 - C(A)/				Contains the code for tests for the subject factor.
 - Fig/				Contains the figures of the paper.
+- html/ 				Contains the publication of selected results with publish.
 
 
 
