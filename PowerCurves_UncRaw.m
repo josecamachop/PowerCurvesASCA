@@ -34,9 +34,9 @@ clc
 
 tic
 
-data = importdata('TN.xlsx');
+%data = importdata('TN.xlsx');
 %data = importdata('LB.xlsx');
-%data = importdata('TN_balanced.xlsx');
+data = importdata('TN_balanced.xlsx');
 
 X = data.data;
 obs_l = data.textdata(2:end,1);
@@ -157,9 +157,9 @@ toc
 
 e = mean(eD,4);
 eST = std(eD,0,4);
-save random_e1 e eST eD alpha
+%save random_e1 e eST eD alpha
 %save random_e2 e eST eD alpha
-%save random_e3 e eST eD alpha
+save random_e3 e eST eD alpha
 
 %% Compare Interaction
 
