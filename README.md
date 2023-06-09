@@ -22,7 +22,7 @@ The code is organized in a number of Matlab scripts:
 
 The present repository is organized as follows:
 
-- 					The root folder contains anonymized data and the code for unconstrained permutations in the observations.
+- The root folder contains anonymized data and the code for unconstrained permutations in the observations.
 - A/				Contains the code for tests for the treatment factor.
 - AB/				Contains the code for tests for the interaction between treatment and time.
 - B/				Contains the code for tests for the time factor.
