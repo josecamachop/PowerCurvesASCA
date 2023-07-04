@@ -1,6 +1,5 @@
 %% Computiation of Power Curves for unconstrained permutations on raw 
-% observations, residuals follow an exponential distribution whose values
-% were then cubed.
+% observations, residuals follow a uniform distribution.
 % 
 % Experimental Design: X = m + A + B + AB + C(A) 
 % where: 
@@ -99,7 +98,7 @@ for i2=1:perm_tot
     end
     
     %Xnoise = randn(length(obs_l),length(var_l));
-    Xnoise = exprnd(1,length(obs_l),length(var_l)).^3; % This is the only change in this branch (same in all subfolders)
+    Xnoise = rand(length(obs_l),length(var_l)); % This is the only change in this branch
     Xnoise = Xnoise/norm(Xnoise);
 
     for a = 1:length(alpha)
