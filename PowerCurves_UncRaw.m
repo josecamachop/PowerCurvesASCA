@@ -76,7 +76,7 @@ perm_tot = 100;
 %% Repite permutations
 
 alpha = 0:0.05:0.5; % This controls the compromise of true significance vs random
-eD = zeros(5,length(alpha),4,perm_tot);
+eD = zeros(6,length(alpha),4,perm_tot);
 
 for i2=1:perm_tot
     
@@ -153,6 +153,18 @@ for i2=1:perm_tot
             end
         end
         
+        % raw data perm F after boxcox
+        Xm2 = Xm;
+        Xm2 = Xm2 - min(min(Xm)) + 0.01;
+        for i=1:size(Xm,2), Xm2(:,i) = boxcox(Xm2(:,i)); end
+        [T, paranovao] = parglm(Xm2,[vc vt vp],[1 2],0,[],1);
+        reo = [4 2 1 3];
+        for o = 1:length(reo)
+            if paranovao.p(reo(o))<0.05
+                eD(6,a,o,i2) = 1;
+            end
+        end
+        
     end
 end
 
@@ -167,29 +179,29 @@ save random_e1 e eST eD alpha
 %% Compare Interaction
 
 i=1;
-figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m'); 
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m'); plot(alpha,e(6,:,i),'c'); 
 xlabel('Alpha'),ylabel('Power'),title('Interaction Time x Class')
-legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F','BoxCox Obs TreeFM F')
 
 %% Compare time
 
 i=2;
-figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m');  
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m'); plot(alpha,e(6,:,i),'c');   
 xlabel('Alpha'),ylabel('Power'),title('Factor Time')
-legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F','BoxCox Obs TreeFM F')
 
 %% Compare class
 
 i=3;
-figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m');  
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m'); plot(alpha,e(6,:,i),'c');   
 xlabel('Alpha'),ylabel('Power'),title('Factor Class')
-legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F','BoxCox Obs TreeFM F')
 
 %% Compare individual
 
 i=4;
-figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m'); 
+figure, plot(alpha,e(1,:,i),'b'); hold on, plot(alpha,e(2,:,i),'r'); plot(alpha,e(3,:,i),'g.-'); plot(alpha,e(4,:,i),'k--'); plot(alpha,e(5,:,i),'m'); plot(alpha,e(6,:,i),'c');  
 xlabel('Alpha'),ylabel('Power'),title('Factor Individual')
-legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F')
+legend('Obs TreeFM','Obs TreeFM 2PCs','Obs TreeFM III','Obs TreeFM A+B+AB','Obs TreeFM F','BoxCox Obs TreeFM F')
 
 
